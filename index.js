@@ -1,6 +1,6 @@
 const express=require('express');
-const port=8000;
 const app=express();
+const dotenv=require('dotenv').config();
 
 // app.get('/',function(req,res){
 
@@ -9,12 +9,12 @@ const app=express();
 
 app.use('/',require('./routes'));
 
-app.listen(port,function(err)
+app.listen(process.env.PORT || 5000,function(err)
 {
     if(err)
     {
         console.log('error while firing server',err);
         return;
     }
-    console.log('app running on port',port);
+    
 })
